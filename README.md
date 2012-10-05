@@ -1,6 +1,6 @@
 # TikZ for Markdown
 
-An extension to [Python-Markdown](http://packages.python.org/Markdown/) to convert blocks of TikZ-code to inline SVG images using `mk4ht` (which should be part of your TeX distribution).
+An extension to [Python-Markdown](http://packages.python.org/Markdown/) to convert blocks of [TikZ-code](http://www.ctan.org/pkg/pgf) to inline SVG images using `mk4ht` (which should be part of your TeX distribution).
 
 Just insert a block (i.e. surrounded by new lines) of raw LaTeX/TikZ code into your document:
 
