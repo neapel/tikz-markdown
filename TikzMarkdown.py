@@ -52,7 +52,6 @@ class TikzBlockProcessor(BlockProcessor):
 		return self.BEGIN in block and self.END in block
 
 	def compile(self, tikz):
-		print 'compile', tikz
 		'''Compile previously unseen TikZ blocks'''
 		if tikz not in self.cache:
 			tmp = mkdtemp()
@@ -90,7 +89,7 @@ class TikzBlockProcessor(BlockProcessor):
 class TikzExtension(Extension):
 	def extendMarkdown(self, md, md_globals):
 		md.registerExtension(self)
-		md.parser.blockprocessors.add('tikz', TikzBlockProcessor(md.parser), '>empty')
+		md.parser.blockprocessors.add('tikz', TikzBlockProcessor(md.parser), '>code')
 
 
 
