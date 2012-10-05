@@ -94,25 +94,6 @@ class TikzExtension(Extension):
 
 
 
-import subprocess
-import sys
-import pyinotify
-
-class OnWriteHandler(pyinotify.ProcessEvent):
-    def my_init(self, cwd, extension, cmd):
-        self.cwd = cwd
-        self.extensions = extension.split(',')
-        self.cmd = cmd
-
-    def _run_cmd(self):
-        print '==> Modification detected'
-        subprocess.call(self.cmd.split(' '), cwd=self.cwd)
-
-    def process_IN_MODIFY(self, event):
-        if all(not event.pathname.endswith(ext) for ext in self.extensions):
-            return
-        self._run_cmd()
-
 
 if __name__ == '__main__':
 	# Watch folder, compile all.
